@@ -496,6 +496,11 @@ a {
   line-height: 1.2;
 }
 
+.product-card h3 a,
+.catalog-card-link {
+  text-decoration: none;
+}
+
 .product-card-content p:not(.product-price) {
   margin-top: 0.1rem;
   font-family: var(--font-display);
@@ -770,5 +775,110 @@ a {
 
   .button {
     transition: none;
+  }
+}
+
+/* Static catalog pages */
+.catalog-page {
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+.catalog-intro {
+  max-width: 52rem;
+  margin-bottom: var(--space-4);
+}
+
+.catalog-intro h1,
+.catalog-detail h1,
+.catalog-page h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.catalog-intro h1,
+.catalog-detail h1 {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+}
+
+.catalog-intro p {
+  margin: 0 0 var(--space-2);
+}
+
+.catalog-demo-note {
+  padding: var(--space-2);
+  border-left: 3px solid var(--color-brand-deep);
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+}
+
+.catalog-collections {
+  margin-bottom: var(--space-4);
+}
+
+.catalog-collections ul,
+.catalog-breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalog-breadcrumbs {
+  margin-bottom: var(--space-4);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.catalog-breadcrumbs li + li::before {
+  margin-right: var(--space-2);
+  content: '/';
+}
+
+.catalog-card-link {
+  display: block;
+}
+
+.catalog-card-link .product-card-media {
+  display: block;
+}
+
+.catalog-page .product-grid {
+  max-width: 88.5rem;
+}
+
+.catalog-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: 100rem;
+}
+
+.catalog-detail-media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+
+.catalog-detail-content {
+  max-width: 42rem;
+}
+
+.catalog-detail-content p {
+  margin-block: 0 var(--space-2);
+}
+
+@media (max-width: 48rem) {
+  .catalog-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 40rem) {
+  .catalog-breadcrumbs li[aria-current='page'] {
+    display: none;
   }
 }

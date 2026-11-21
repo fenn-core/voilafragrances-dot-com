@@ -1,0 +1,25 @@
+      <div class="container catalog-page">
+        <nav class="catalog-breadcrumbs" aria-label="İçerik yolu">
+          <ol><li><a href="${root}index.html">Ana Sayfa</a></li>
+            <li><a href="${root}products/">Ürünler</a></li>
+            <li><a href="$collection_url">$collection_name</a></li>
+            <li aria-current="page">$name</li></ol>
+        </nav>
+        <article class="catalog-detail">
+          <div class="catalog-detail-media">
+            <img src="$main_image_url" alt="$main_image_alt" width="570" height="400">
+            $secondary_images
+          </div>
+          <div class="catalog-detail-content">
+            <p class="eyebrow">VOILA FRAGRANCES</p>
+            <h1>$name</h1>
+            <p class="catalog-demo-note">Temsilî ürün: bilgiler, görseller ve fiyat örnek amaçlıdır.</p>
+            <p>$short_description</p>
+            <p>$description</p>
+            $size
+            $variants
+            $price
+            <p><a href="$collection_url">$collection_name koleksiyonuna dön</a></p>
+          </div>
+        </article>
+      </div>

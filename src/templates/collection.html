@@ -1,0 +1,18 @@
+      <div class="container catalog-page">
+        <nav class="catalog-breadcrumbs" aria-label="İçerik yolu">
+          <ol><li><a href="${root}index.html">Ana Sayfa</a></li>
+            <li><a href="${root}products/">Ürünler</a></li><li aria-current="page">$name</li></ol>
+        </nav>
+        <header class="catalog-intro">
+          <h1>$name</h1>
+          $description
+          <p class="catalog-demo-note">Bu koleksiyondaki ürünler ve fiyatlar temsilîdir.</p>
+        </header>
+        <section aria-labelledby="collection-products-title">
+          <h2 id="collection-products-title">Ürünler</h2>
+          <div class="product-grid">
+$product_cards
+          </div>
+          $empty_state
+        </section>
+      </div>
