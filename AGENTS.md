@@ -88,10 +88,25 @@
 - Avoid unrelated refactors, renames, and formatting churn.
 - Never overwrite supplied source images or reference files.
 - Never remove user work without explicit authorization.
-- Do not create Git commits unless specifically requested.
 - Do not run destructive Git commands.
 - Do not add license files, badges, or tooling without a reason.
 - If blocked, document the specific blocker and safe next action.
+
+## Commit Policy
+
+- Make atomic, meaningful commits after completing and validating a coherent task.
+- Prefer one commit per substantial development iteration, not one commit per tiny adjustment.
+- Separate genuinely independent changes when doing so improves the history.
+- Use Conventional Commit-style messages: `feat:`, `fix:`, `style:`, `refactor:`,
+  `test:`, `docs:`, or `chore:`.
+- Make commit messages describe the actual change.
+- Never commit unrelated or pre-existing user changes.
+- Inspect the diff before staging or committing.
+- Stage explicit files rather than blindly using `git add -A`.
+- Never amend, squash, rebase, reset, or rewrite existing history without explicit instruction.
+- Do not commit generated screenshots, temporary browser artifacts, caches, or local dependencies.
+- Never commit broken or unvalidated changes merely to satisfy a commit requirement.
+- Report commit hashes and messages in the final development handoff.
 
 ## HTML Guidelines
 
@@ -239,6 +254,7 @@
 ## Handoff Format
 
 - Briefly summarize the implemented change.
+- Report commit hashes and messages for commits created during the task.
 - List files created, modified, or deleted.
 - State the checks performed and their results.
 - Mention remaining design mismatches or limitations.

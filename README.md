@@ -1,6 +1,6 @@
 # VOILA FRAGRANCES
 
-Static Turkish homepage foundation for the VOILA FRAGRANCES storefront.
+Static Turkish homepage for the VOILA FRAGRANCES storefront.
 
 ## Local preview
 
@@ -11,8 +11,10 @@ From the repository root, run `python3 -m http.server 8000` and open
 
 - `index.html` is the Turkish homepage. `/en/` is reserved for a future English site.
 - `css/styles.css` and `js/main.js` are shared, language-neutral files.
-- Hero and product media are labeled placeholders. Product details, imagery, claims,
-  prices, contact details, legal text, and commerce functions require confirmation.
-- Search and cart symbols are noninteractive. The mobile navigation menu is functional.
-- The approved visual direction is in `assets/reference/build-reference.png`; final styling
-  and catalog photography are deferred.
+- The hero and product photos in `assets/images/` are temporary crops from the approved
+  `assets/reference/build-reference.png`. The source references and official logo are unchanged.
+- Product names, sizes, types, and prices are demonstrative. Real catalog details, contact
+  information, legal text, and commerce functions require confirmation.
+- Search, account, wishlist, and cart symbols are noninteractive. The mobile menu is functional.
+- The desktop visual styling follows the approved reference. Mobile visual refinement and
+  independent production photography are deferred.
