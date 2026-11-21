@@ -1,14 +1,16 @@
             <article class="product-card">
-              <a class="catalog-card-link" href="$product_url">
+              <a class="catalog-card-link" href="$product_url" aria-label="$view_label">
                 <span class="product-card-media">
                   <img src="$image_url" alt="$image_alt" width="285" height="200">
                 </span>
-                <div class="product-card-content">
-                  <div>
-                    <h3>$name</h3>
-                    <p>$size</p>
-                  </div>
-                  $price
-                </div>
               </a>
+              <div class="product-card-content">
+                <div>
+                  <h3><a href="$product_url">$name</a></h3>
+                  <p>$size</p>
+                </div>
+                $price
+              </div>
+              <button class="cart-add-button" type="button" data-cart-add="$product_id"
+                aria-label="$add_label" disabled>Sepete Ekle</button>
             </article>

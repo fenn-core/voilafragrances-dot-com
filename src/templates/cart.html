@@ -1,0 +1,70 @@
+      <div class="container cart-page" data-cart-page
+        data-unit-price-label="Birim fiyat:"
+        data-line-total-label="Ürün toplamı:"
+        data-price-missing-label="Fiyat bilgisi yok"
+        data-subtotal-missing-label="Hesaplanamıyor"
+        data-increase-label="Adedi artır:"
+        data-decrease-label="Adedi azalt:"
+        data-remove-label="Ürünü kaldır:">
+        <nav class="catalog-breadcrumbs" aria-label="İçerik yolu">
+          <ol><li><a href="${root}index.html">Ana Sayfa</a></li>
+            <li aria-current="page">Sepetim</li></ol>
+        </nav>
+        <header class="cart-intro">
+          <p class="eyebrow">VOILA FRAGRANCES</p>
+          <h1>Sepetim</h1>
+          <p>Ürünleri deneme sepetinizde inceleyebilirsiniz.</p>
+          <p class="catalog-demo-note">Ürünler ve fiyatlar temsilîdir. Bu siteden henüz
+            gerçek sipariş verilemez.</p>
+        </header>
+        <p class="cart-state-message" data-cart-loading>Sepet yükleniyor...</p>
+        <noscript><p class="cart-state-message">Sepeti görüntülemek için JavaScript gereklidir.</p></noscript>
+        <p class="cart-state-message" data-cart-error hidden>
+          Sepet şu anda görüntülenemiyor. Lütfen daha sonra tekrar deneyin.
+        </p>
+        <p class="cart-state-message" data-cart-storage-error hidden>
+          Tarayıcı depolaması kullanılamıyor. Sepet bu tarayıcıda etkinleştirilemiyor.
+        </p>
+        <div class="cart-empty" data-cart-empty hidden>
+          <p>Sepetiniz boş.</p>
+          <a class="button button-secondary" href="${root}products/">Ürünlere Dön</a>
+        </div>
+        <div class="cart-layout" data-cart-content hidden>
+          <section class="cart-items" aria-labelledby="cart-items-title">
+            <h2 class="visually-hidden" id="cart-items-title">Sepetteki Ürünler</h2>
+            <div data-cart-items></div>
+            <a class="cart-continue-link" href="${root}products/">Ürünlere Dön</a>
+          </section>
+          <aside class="cart-summary" aria-labelledby="cart-summary-title">
+            <h2 id="cart-summary-title">Sepet Özeti</h2>
+            <p class="cart-subtotal"><span>Ara toplam</span>
+              <strong data-cart-subtotal></strong></p>
+            <p class="cart-subtotal-note" data-cart-subtotal-note hidden>
+              Bazı ürünlerin fiyatı bulunmadığından tam bir ara toplam gösterilemiyor.
+            </p>
+            <button class="cart-clear-button" type="button" data-cart-clear>Sepeti Boşalt</button>
+            <button class="button button-primary cart-checkout-button" type="button" disabled>
+              Ödemeye Geç
+            </button>
+            <p class="cart-checkout-note">Online satın alma henüz kullanıma açık değil.</p>
+          </aside>
+        </div>
+      </div>
+      <template id="cart-item-template">
+        <article class="cart-item">
+          <a class="cart-item-image-link" data-item-image-link>
+            <img data-item-image width="285" height="200" alt="">
+          </a>
+          <div class="cart-item-info">
+            <h2><a data-item-name-link></a></h2>
+            <p class="cart-item-unit-price" data-item-unit-price></p>
+            <div class="cart-item-controls">
+              <button type="button" data-item-decrease>−</button>
+              <output data-item-quantity></output>
+              <button type="button" data-item-increase>+</button>
+              <button class="cart-remove-button" type="button" data-item-remove>Kaldır</button>
+            </div>
+          </div>
+          <p class="cart-item-line-total" data-item-total></p>
+        </article>
+      </template>

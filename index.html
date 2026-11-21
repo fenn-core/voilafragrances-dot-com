@@ -7,6 +7,8 @@
     <title>VOILA FRAGRANCES | Ana Sayfa</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/main.js" defer></script>
+    <script src="js/cart.js" data-cart-catalog="data/public-catalog.json"
+      data-cart-root="" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">İçeriğe geç</a>
@@ -42,7 +44,7 @@
           </ul>
         </nav>
 
-        <div class="header-icon-areas" aria-label="Gelecek özellikler">
+        <div class="header-icon-areas" aria-label="Site araçları">
           <span class="header-icon-area" title="Arama henüz kullanıma açık değil">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
@@ -59,14 +61,15 @@
             </svg>
             <span class="visually-hidden">Hesap alanı yakında</span>
           </span>
-          <span class="header-icon-area" title="Sepet henüz kullanıma açık değil">
+          <a class="header-icon-area cart-link" href="cart/" aria-label="Sepet"
+            data-cart-link data-cart-label="Sepet">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <path d="M4 7h16l-1.5 13h-13L4 7Z"></path>
               <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
             </svg>
-            <span class="visually-hidden">Sepet alanı yakında</span>
-          </span>
+            <span class="cart-count-badge" data-cart-count hidden>0</span>
+          </a>
         </div>
       </div>
     </header>
@@ -159,6 +162,8 @@
                 </div>
                 <p class="product-price">1.290 ₺</p>
               </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-rose-elegance"
+                aria-label="Rosé Élégance ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
             <article class="product-card">
@@ -174,6 +179,8 @@
                 </div>
                 <p class="product-price">1.290 ₺</p>
               </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-amber-noire"
+                aria-label="Amber Noire ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
             <article class="product-card">
@@ -189,6 +196,8 @@
                 </div>
                 <p class="product-price">1.290 ₺</p>
               </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-lavande-mystique"
+                aria-label="Lavande Mystique ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
             <article class="product-card">
@@ -204,6 +213,8 @@
                 </div>
                 <p class="product-price">1.290 ₺</p>
               </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-fleur-blanche"
+                aria-label="Fleur Blanche ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
           </div>
@@ -236,5 +247,8 @@
         </section>
       </div>
     </footer>
+    <p class="cart-feedback" role="status" aria-live="polite" data-cart-feedback
+      data-added-text="Deneme sepetine eklendi."
+      data-unavailable-text="Sepet şu anda kullanılamıyor." hidden></p>
   </body>
 </html>

@@ -17,7 +17,7 @@ uses only Python 3's standard library and leaves unchanged files untouched.
 
 `src/templates/home.html` is the homepage source. The catalog, collection, and
 product templates also live in `src/templates/`. The generated `index.html`,
-`products/**/index.html`, and `collections/*/index.html` are build outputs: edit
+`products/**/index.html`, `collections/*/index.html`, and `cart/index.html` are build outputs: edit
 their templates or `data/catalog.json`, then rebuild. Do not edit generated HTML
 directly.
 
@@ -40,8 +40,12 @@ delete the product record or mark it `draft`, then rebuild. Change a slug in the
 record and rebuild to replace the old route. The homepage cards use that same
 record for names, images, size, price, and links.
 
-Generated routes are `/`, `/products/`, `/collections/perfumes/`, and one
+Generated routes are `/`, `/products/`, `/collections/perfumes/`, `/cart/`, and one
 `/products/<slug>/` page for each published product. `/en/` remains reserved.
+`data/public-catalog.json` is also generated. It contains only published products' IDs,
+Turkish names, URLs, primary image paths, and optional integer prices and currencies.
+It is the cart's current product and price source; do not edit it directly.
+
 `.generated-pages.json` records generator-owned paths and content hashes. A
 successful build removes obsolete owned HTML pages and empty slug directories.
 It preserves unrelated files and refuses to overwrite or delete an owned page
@@ -51,12 +55,19 @@ obsolete outputs without changing them. Commit the manifest with generated HTML.
 ## Current scope
 
 - `index.html` is the generated Turkish homepage. `/en/` is reserved for a future English site.
-- `css/styles.css` and `js/main.js` are shared, language-neutral files.
+- `css/styles.css`, `js/main.js`, and `js/cart.js` are shared files.
 - The hero and product photos in `assets/images/` are temporary crops from the approved
   `assets/reference/build-reference.png`. The source references and official logo are unchanged.
 - Product names, sizes, types, and prices are demonstrative. Real catalog details, contact
-  information, legal text, and commerce functions require confirmation.
-- Search, account, wishlist, and cart symbols are noninteractive. The mobile menu is functional.
+  information, legal text, and purchasing functions require confirmation.
+- Search and account symbols remain noninteractive. The mobile menu is functional.
+- The demonstration cart uses `localStorage` key `voila-fragrances.cart.v1` with
+  `{ "version": 1, "items": [{ "id": "...", "quantity": 1 }] }`. It stores no
+  authoritative names or prices. The cart re-reads current published product data
+  from `data/public-catalog.json`, removes stale IDs, and calculates totals in integer
+  minor currency units. Without JavaScript or browser storage, catalog and product
+  content remains available, but the cart cannot operate. Checkout, orders, shipping,
+  tax, and payment are unavailable; all products and prices are demonstrations.
 - The responsive styling follows the approved reference from phone through wide desktop.
   Independent production photography is deferred.
 - The four homepage cards keep the approved structure and draw their content

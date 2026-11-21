@@ -127,8 +127,9 @@ def validate_catalog(data):
         if product.get("status") == "published" and not product["is_demo"]:
             raise CatalogError(f"{where}: only demonstration products may be published")
         if "price_minor" in product:
-            if type(product["price_minor"]) is not int or product["price_minor"] < 0:
-                raise CatalogError(f"{where}.price_minor: expected nonnegative integer")
+            if (type(product["price_minor"]) is not int
+                    or not 0 <= product["price_minor"] <= 9_007_199_254_740_991):
+                raise CatalogError(f"{where}.price_minor: expected nonnegative safe integer")
             if product.get("currency") != "TRY":
                 raise CatalogError(f"{where}.currency: only TRY formatting is supported")
         elif "currency" in product:
@@ -183,7 +184,10 @@ def product_card(product, root):
     price = format_price(product)
     return template(
         "product-card.html",
+        product_id=product["id"],
         product_url=f"{root}products/{product['slug']}/",
+        view_label=escape(f'{tr["name"]} ürününü incele'),
+        add_label=escape(f'{tr["name"]} ürününü deneme sepetine ekle'),
         image_url=root + image["path"],
         image_alt=escape(image["alt"]["tr"]),
         name=escape(tr["name"]),
@@ -199,6 +203,8 @@ def home_product_card(product):
     price = format_price(product)
     return template(
         "home-product-card.html",
+        product_id=product["id"],
+        add_label=escape(f'{tr["name"]} ürününü deneme sepetine ekle'),
         product_url=f"products/{product['slug']}/",
         image_url=image["path"],
         image_alt=escape(image["alt"]["tr"]),
@@ -236,6 +242,22 @@ def render_pages(data):
         perfumes_url=f"collections/{perfumes['slug']}/" if perfumes else "#perfumes",
         perfumes_name=escape(perfumes["text"]["tr"]["name"]) if perfumes else "Parfümler",
     )
+    public_products = []
+    for product in published:
+        item = {
+            "id": product["id"],
+            "name": product["text"]["tr"]["name"],
+            "url": f"products/{product['slug']}/",
+            "image": product["images"][0]["path"],
+        }
+        if "price_minor" in product:
+            item["price_minor"] = product["price_minor"]
+            item["currency"] = product["currency"]
+        public_products.append(item)
+    pages[ROOT / "data" / "public-catalog.json"] = json.dumps(
+        {"schema_version": 1, "locale": "tr", "products": public_products},
+        ensure_ascii=False, indent=2, sort_keys=True,
+    )
     links = "\n".join(
         f'<li><a href="../collections/{item["slug"]}/">'
         f'{escape(item["text"]["tr"]["name"])}</a></li>'
@@ -246,6 +268,9 @@ def render_pages(data):
     pages[ROOT / "products" / "index.html"] = page(
         body, "../", "Ürünler", "Temsilî VOILA FRAGRANCES ürün kataloğu.",
         data["collections"])
+    pages[ROOT / "cart" / "index.html"] = page(
+        template("cart.html", root="../"), "../", "Sepetim",
+        "Temsilî VOILA FRAGRANCES sepeti.", data["collections"])
 
     for collection in data["collections"]:
         tr = collection["text"]["tr"]
@@ -280,6 +305,8 @@ def render_pages(data):
         ) if variants else ""
         body = template(
             "product.html", root="../../", name=escape(tr["name"]),
+            product_id=product["id"],
+            add_label=escape(f'{tr["name"]} ürününü deneme sepetine ekle'),
             collection_url=f"../../collections/{primary_collection['slug']}/",
             collection_name=escape(primary_name),
             main_image_url="../../" + images[0]["path"],
@@ -308,7 +335,8 @@ def no_duplicate_keys(pairs):
 
 
 def output_path(relative):
-    if relative not in ("index.html", "products/index.html") and not OWNED_ROUTE.fullmatch(relative):
+    if relative not in ("index.html", "products/index.html", "cart/index.html",
+                        "data/public-catalog.json") and not OWNED_ROUTE.fullmatch(relative):
         raise CatalogError(f"unsafe generated-output path: {relative}")
     path = ROOT / relative
     current = path
@@ -407,7 +435,7 @@ def build(pages, check):
         path = output_path(relative)
         if path.exists():
             path.unlink()
-        if relative not in ("index.html", "products/index.html"):
+        if OWNED_ROUTE.fullmatch(relative):
             try:
                 path.parent.rmdir()  # Only an empty, directly owned slug directory.
             except OSError:

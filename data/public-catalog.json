@@ -1,0 +1,38 @@
+{
+  "locale": "tr",
+  "products": [
+    {
+      "currency": "TRY",
+      "id": "product-rose-elegance",
+      "image": "assets/images/product-rose.webp",
+      "name": "Rosé Élégance",
+      "price_minor": 129000,
+      "url": "products/rose-elegance/"
+    },
+    {
+      "currency": "TRY",
+      "id": "product-amber-noire",
+      "image": "assets/images/product-amber.webp",
+      "name": "Amber Noire",
+      "price_minor": 129000,
+      "url": "products/amber-noire/"
+    },
+    {
+      "currency": "TRY",
+      "id": "product-lavande-mystique",
+      "image": "assets/images/product-lavender.webp",
+      "name": "Lavande Mystique",
+      "price_minor": 129000,
+      "url": "products/lavande-mystique/"
+    },
+    {
+      "currency": "TRY",
+      "id": "product-fleur-blanche",
+      "image": "assets/images/product-white-floral.webp",
+      "name": "Fleur Blanche",
+      "price_minor": 129000,
+      "url": "products/fleur-blanche/"
+    }
+  ],
+  "schema_version": 1
+}

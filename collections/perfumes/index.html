@@ -7,6 +7,8 @@
     <title>Parfümler | VOILA FRAGRANCES</title>
     <link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/main.js" defer></script>
+    <script src="../../js/cart.js" data-cart-catalog="../../data/public-catalog.json"
+      data-cart-root="../../" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">İçeriğe geç</a>
@@ -35,7 +37,7 @@
             <li><a href="../../index.html#contact">İletişim</a></li>
           </ul>
         </nav>
-        <div class="header-icon-areas" aria-label="Gelecek özellikler">
+        <div class="header-icon-areas" aria-label="Site araçları">
           <span class="header-icon-area" title="Arama henüz kullanıma açık değil">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
@@ -49,12 +51,13 @@
               <path d="M4.5 21v-2.5a7.5 7.5 0 0 1 15 0V21"></path>
             </svg><span class="visually-hidden">Hesap alanı yakında</span>
           </span>
-          <span class="header-icon-area" title="Sepet henüz kullanıma açık değil">
+          <a class="header-icon-area cart-link" href="../../cart/" aria-label="Sepet"
+            data-cart-link data-cart-label="Sepet">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <path d="M4 7h16l-1.5 13h-13L4 7Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
-            </svg><span class="visually-hidden">Sepet alanı yakında</span>
-          </span>
+            </svg><span class="cart-count-badge" data-cart-count hidden>0</span>
+          </a>
         </div>
       </div>
     </header>
@@ -76,63 +79,71 @@
           </div>
           <div class="product-grid">
             <article class="product-card">
-              <a class="catalog-card-link" href="../../products/rose-elegance/">
+              <a class="catalog-card-link" href="../../products/rose-elegance/" aria-label="Rosé Élégance ürününü incele">
                 <span class="product-card-media">
                   <img src="../../assets/images/product-rose.webp" alt="Pembe parfüm şişesi ve çiçek" width="285" height="200">
                 </span>
-                <div class="product-card-content">
-                  <div>
-                    <h3>Rosé Élégance</h3>
-                    <p>50 ml Eau de Parfum</p>
-                  </div>
-                  <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
-                </div>
               </a>
+              <div class="product-card-content">
+                <div>
+                  <h3><a href="../../products/rose-elegance/">Rosé Élégance</a></h3>
+                  <p>50 ml Eau de Parfum</p>
+                </div>
+                <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
+              </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-rose-elegance"
+                aria-label="Rosé Élégance ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
             <article class="product-card">
-              <a class="catalog-card-link" href="../../products/amber-noire/">
+              <a class="catalog-card-link" href="../../products/amber-noire/" aria-label="Amber Noire ürününü incele">
                 <span class="product-card-media">
                   <img src="../../assets/images/product-amber.webp" alt="Kehribar tonlarında parfüm şişesi" width="285" height="200">
                 </span>
-                <div class="product-card-content">
-                  <div>
-                    <h3>Amber Noire</h3>
-                    <p>50 ml Eau de Parfum</p>
-                  </div>
-                  <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
-                </div>
               </a>
+              <div class="product-card-content">
+                <div>
+                  <h3><a href="../../products/amber-noire/">Amber Noire</a></h3>
+                  <p>50 ml Eau de Parfum</p>
+                </div>
+                <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
+              </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-amber-noire"
+                aria-label="Amber Noire ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
             <article class="product-card">
-              <a class="catalog-card-link" href="../../products/lavande-mystique/">
+              <a class="catalog-card-link" href="../../products/lavande-mystique/" aria-label="Lavande Mystique ürününü incele">
                 <span class="product-card-media">
                   <img src="../../assets/images/product-lavender.webp" alt="Mor tonlarında parfüm şişesi ve lavanta" width="285" height="200">
                 </span>
-                <div class="product-card-content">
-                  <div>
-                    <h3>Lavande Mystique</h3>
-                    <p>50 ml Eau de Parfum</p>
-                  </div>
-                  <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
-                </div>
               </a>
+              <div class="product-card-content">
+                <div>
+                  <h3><a href="../../products/lavande-mystique/">Lavande Mystique</a></h3>
+                  <p>50 ml Eau de Parfum</p>
+                </div>
+                <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
+              </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-lavande-mystique"
+                aria-label="Lavande Mystique ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
             <article class="product-card">
-              <a class="catalog-card-link" href="../../products/fleur-blanche/">
+              <a class="catalog-card-link" href="../../products/fleur-blanche/" aria-label="Fleur Blanche ürününü incele">
                 <span class="product-card-media">
                   <img src="../../assets/images/product-white-floral.webp" alt="Açık renkli parfüm şişesi ve beyaz çiçekler" width="285" height="200">
                 </span>
-                <div class="product-card-content">
-                  <div>
-                    <h3>Fleur Blanche</h3>
-                    <p>50 ml Eau de Parfum</p>
-                  </div>
-                  <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
-                </div>
               </a>
+              <div class="product-card-content">
+                <div>
+                  <h3><a href="../../products/fleur-blanche/">Fleur Blanche</a></h3>
+                  <p>50 ml Eau de Parfum</p>
+                </div>
+                <p class="product-price" aria-label="Temsilî fiyat: 1.290 ₺">1.290 ₺</p>
+              </div>
+              <button class="cart-add-button" type="button" data-cart-add="product-fleur-blanche"
+                aria-label="Fleur Blanche ürününü deneme sepetine ekle" disabled>Sepete Ekle</button>
             </article>
 
           </div>
@@ -166,5 +177,8 @@
         </section>
       </div>
     </footer>
+    <p class="cart-feedback" role="status" aria-live="polite" data-cart-feedback
+      data-added-text="Deneme sepetine eklendi."
+      data-unavailable-text="Sepet şu anda kullanılamıyor." hidden></p>
   </body>
 </html>

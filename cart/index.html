@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Temsilî VOILA FRAGRANCES sepeti.">
+    <title>Sepetim | VOILA FRAGRANCES</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/cart.js" data-cart-catalog="../data/public-catalog.json"
+      data-cart-root="../" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">İçeriğe geç</a>
+    <div class="announcement-bar">
+      <div class="container"><p>VOILA FRAGRANCES dünyasına hoş geldiniz.</p></div>
+    </div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand-link" href="../index.html" aria-label="VOILA FRAGRANCES ana sayfa">
+          <img src="../assets/logos/logo.png" alt="VOILA FRAGRANCES logosu"
+            width="64" height="64">
+        </a>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation"
+          aria-expanded="false" aria-label="Menüyü aç" data-label-open="Menüyü aç"
+          data-label-close="Menüyü kapat">
+          <span class="menu-toggle-icon" aria-hidden="true"></span><span>Menü</span>
+        </button>
+        <nav class="primary-navigation" id="primary-navigation" aria-label="Ana menü">
+          <ul class="navigation-list">
+            <li><a href="../index.html">Ana Sayfa</a></li>
+            <li><a href="../collections/perfumes/">Parfümler</a></li>
+            <li><a href="../index.html#home-fragrance">Oda Kokuları</a></li>
+            <li><a href="../index.html#candles">Mumlar</a></li>
+            <li><a href="../index.html#gift-sets">Hediye Setleri</a></li>
+            <li><a href="../index.html#about">Hakkımızda</a></li>
+            <li><a href="../index.html#contact">İletişim</a></li>
+          </ul>
+        </nav>
+        <div class="header-icon-areas" aria-label="Site araçları">
+          <span class="header-icon-area" title="Arama henüz kullanıma açık değil">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              aria-hidden="true" focusable="false">
+              <circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path>
+            </svg><span class="visually-hidden">Arama alanı yakında</span>
+          </span>
+          <span class="header-icon-area" title="Hesap henüz kullanıma açık değil">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              aria-hidden="true" focusable="false">
+              <circle cx="12" cy="7.5" r="3.5"></circle>
+              <path d="M4.5 21v-2.5a7.5 7.5 0 0 1 15 0V21"></path>
+            </svg><span class="visually-hidden">Hesap alanı yakında</span>
+          </span>
+          <a class="header-icon-area cart-link" href="../cart/" aria-label="Sepet"
+            data-cart-link data-cart-label="Sepet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              aria-hidden="true" focusable="false">
+              <path d="M4 7h16l-1.5 13h-13L4 7Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+            </svg><span class="cart-count-badge" data-cart-count hidden>0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main id="main-content">
+      <div class="container cart-page" data-cart-page
+        data-unit-price-label="Birim fiyat:"
+        data-line-total-label="Ürün toplamı:"
+        data-price-missing-label="Fiyat bilgisi yok"
+        data-subtotal-missing-label="Hesaplanamıyor"
+        data-increase-label="Adedi artır:"
+        data-decrease-label="Adedi azalt:"
+        data-remove-label="Ürünü kaldır:">
+        <nav class="catalog-breadcrumbs" aria-label="İçerik yolu">
+          <ol><li><a href="../index.html">Ana Sayfa</a></li>
+            <li aria-current="page">Sepetim</li></ol>
+        </nav>
+        <header class="cart-intro">
+          <p class="eyebrow">VOILA FRAGRANCES</p>
+          <h1>Sepetim</h1>
+          <p>Ürünleri deneme sepetinizde inceleyebilirsiniz.</p>
+          <p class="catalog-demo-note">Ürünler ve fiyatlar temsilîdir. Bu siteden henüz
+            gerçek sipariş verilemez.</p>
+        </header>
+        <p class="cart-state-message" data-cart-loading>Sepet yükleniyor...</p>
+        <noscript><p class="cart-state-message">Sepeti görüntülemek için JavaScript gereklidir.</p></noscript>
+        <p class="cart-state-message" data-cart-error hidden>
+          Sepet şu anda görüntülenemiyor. Lütfen daha sonra tekrar deneyin.
+        </p>
+        <p class="cart-state-message" data-cart-storage-error hidden>
+          Tarayıcı depolaması kullanılamıyor. Sepet bu tarayıcıda etkinleştirilemiyor.
+        </p>
+        <div class="cart-empty" data-cart-empty hidden>
+          <p>Sepetiniz boş.</p>
+          <a class="button button-secondary" href="../products/">Ürünlere Dön</a>
+        </div>
+        <div class="cart-layout" data-cart-content hidden>
+          <section class="cart-items" aria-labelledby="cart-items-title">
+            <h2 class="visually-hidden" id="cart-items-title">Sepetteki Ürünler</h2>
+            <div data-cart-items></div>
+            <a class="cart-continue-link" href="../products/">Ürünlere Dön</a>
+          </section>
+          <aside class="cart-summary" aria-labelledby="cart-summary-title">
+            <h2 id="cart-summary-title">Sepet Özeti</h2>
+            <p class="cart-subtotal"><span>Ara toplam</span>
+              <strong data-cart-subtotal></strong></p>
+            <p class="cart-subtotal-note" data-cart-subtotal-note hidden>
+              Bazı ürünlerin fiyatı bulunmadığından tam bir ara toplam gösterilemiyor.
+            </p>
+            <button class="cart-clear-button" type="button" data-cart-clear>Sepeti Boşalt</button>
+            <button class="button button-primary cart-checkout-button" type="button" disabled>
+              Ödemeye Geç
+            </button>
+            <p class="cart-checkout-note">Online satın alma henüz kullanıma açık değil.</p>
+          </aside>
+        </div>
+      </div>
+      <template id="cart-item-template">
+        <article class="cart-item">
+          <a class="cart-item-image-link" data-item-image-link>
+            <img data-item-image width="285" height="200" alt="">
+          </a>
+          <div class="cart-item-info">
+            <h2><a data-item-name-link></a></h2>
+            <p class="cart-item-unit-price" data-item-unit-price></p>
+            <div class="cart-item-controls">
+              <button type="button" data-item-decrease>−</button>
+              <output data-item-quantity></output>
+              <button type="button" data-item-increase>+</button>
+              <button class="cart-remove-button" type="button" data-item-remove>Kaldır</button>
+            </div>
+          </div>
+          <p class="cart-item-line-total" data-item-total></p>
+        </article>
+      </template>
+
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <section aria-labelledby="footer-about-title">
+          <h2 id="footer-about-title">VOILA FRAGRANCES</h2>
+          <p>Marka bilgileri yakında eklenecek.</p>
+        </section>
+        <nav aria-label="Alt menü">
+          <h2>Gezinme</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html">Ana Sayfa</a></li>
+            <li><a href="../products/">Koleksiyon</a></li>
+            <li><a href="../index.html#about">Hakkımızda</a></li>
+            <li><a href="../index.html#contact">İletişim</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">İletişim</h2>
+          <p>İletişim bilgileri yakında eklenecek.</p>
+        </section>
+        <section aria-labelledby="footer-legal-title">
+          <h2 id="footer-legal-title">Yasal Bilgiler</h2>
+          <p>Yasal metinler hazırlık aşamasındadır.</p>
+        </section>
+      </div>
+    </footer>
+    <p class="cart-feedback" role="status" aria-live="polite" data-cart-feedback
+      data-added-text="Deneme sepetine eklendi."
+      data-unavailable-text="Sepet şu anda kullanılamıyor." hidden></p>
+  </body>
+</html>
