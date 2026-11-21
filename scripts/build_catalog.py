@@ -246,10 +246,12 @@ def render_pages(data):
             main_image_alt=escape(images[0]["alt"]["tr"]),
             secondary_images=secondary, short_description=escape(tr["short_description"]),
             description=escape(tr["description"]),
-            size=f'<p><strong>Boyut / tür:</strong> {escape(tr["size"])}</p>'
+            size=f'<p class="catalog-detail-size"><strong>Boyut / tür:</strong> '
+                 f'<span>{escape(tr["size"])}</span></p>'
                  if tr.get("size") else "",
             variants=variant_markup,
-            price=f'<p><strong>Temsilî fiyat:</strong> {escape(price)}</p>' if price else "",
+            price=f'<p class="catalog-detail-price"><strong>Temsilî fiyat:</strong> '
+                  f'<span>{escape(price)}</span></p>' if price else "",
         )
         pages[ROOT / "products" / product["slug"] / "index.html"] = page(
             body, "../../", tr["name"], tr["short_description"], data["collections"])
