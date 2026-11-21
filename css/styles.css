@@ -1099,6 +1099,100 @@ a {
   margin-bottom: var(--space-2);
 }
 
+/* Supporting pages */
+.support-page {
+  max-width: 80rem;
+  padding-block: clamp(2rem, 3.5vw, 3.75rem) clamp(3rem, 5vw, 5rem);
+}
+
+.support-intro {
+  max-width: 54rem;
+  margin-bottom: var(--space-4);
+}
+
+.support-intro h1 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 3.5vw, 4rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.13;
+}
+
+.support-lead {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.support-draft-note {
+  max-width: 48rem;
+  margin: var(--space-3) 0 0;
+  padding: 0.8rem var(--space-2);
+  border-left: 3px solid var(--color-brand-deep);
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.support-panel {
+  min-width: 0;
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+}
+
+.support-panel h2 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.7vw, 1.8rem);
+  font-weight: 500;
+}
+
+.support-panel p {
+  max-width: 52ch;
+  margin: 0 0 var(--space-2);
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.support-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.support-text-link,
+.support-contact-link {
+  color: var(--color-brand-deep);
+  text-underline-offset: 0.2em;
+}
+
+.support-contact-link {
+  display: inline-block;
+  overflow-wrap: anywhere;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+@media (max-width: 48rem) {
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 40rem) {
+  .support-panel {
+    padding: var(--space-3);
+  }
+}
+
 /* Client-side cart */
 .cart-page [hidden] {
   display: none;

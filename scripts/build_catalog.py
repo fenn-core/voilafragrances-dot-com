@@ -214,7 +214,8 @@ def home_product_card(product):
     )
 
 
-def page(body, root, title, description, collections, current_collection=None):
+def page(body, root, title, description, collections, current_collection=None,
+         current_page=None):
     navigation_links = []
     for item in collections:
         active = ' aria-current="page"' if item["id"] == current_collection else ""
@@ -226,6 +227,8 @@ def page(body, root, title, description, collections, current_collection=None):
         "layout.html", root=root, main=body,
         page_title=escape(title), meta_description=escape(description),
         collection_navigation="\n".join(navigation_links),
+        about_current=' aria-current="page"' if current_page == "about" else "",
+        contact_current=' aria-current="page"' if current_page == "contact" else "",
     )
 
 
@@ -271,6 +274,14 @@ def render_pages(data):
     pages[ROOT / "cart" / "index.html"] = page(
         template("cart.html", root="../"), "../", "Sepetim",
         "Temsilî VOILA FRAGRANCES sepeti.", data["collections"])
+    pages[ROOT / "about" / "index.html"] = page(
+        template("about.html", root="../"), "../", "Hakkımızda",
+        "VOILA FRAGRANCES marka tanıtımı taslağı.", data["collections"],
+        current_page="about")
+    pages[ROOT / "contact" / "index.html"] = page(
+        template("contact.html", root="../"), "../", "İletişim",
+        "VOILA FRAGRANCES doğrulanmış Instagram iletişim bilgisi.",
+        data["collections"], current_page="contact")
 
     for collection in data["collections"]:
         tr = collection["text"]["tr"]
@@ -336,6 +347,7 @@ def no_duplicate_keys(pairs):
 
 def output_path(relative):
     if relative not in ("index.html", "products/index.html", "cart/index.html",
+                        "about/index.html", "contact/index.html",
                         "data/public-catalog.json") and not OWNED_ROUTE.fullmatch(relative):
         raise CatalogError(f"unsafe generated-output path: {relative}")
     path = ROOT / relative
