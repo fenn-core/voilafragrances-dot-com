@@ -1,5 +1,11 @@
 {
   "schema_version": 1,
+  "featured_product_ids": [
+    "product-rose-elegance",
+    "product-amber-noire",
+    "product-lavande-mystique",
+    "product-fleur-blanche"
+  ],
   "collections": [
     {
       "id": "perfumes",

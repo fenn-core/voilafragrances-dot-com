@@ -2,6 +2,7 @@
 """Validate the Turkish demo catalog and build static HTML pages."""
 
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -12,8 +13,13 @@ from string import Template
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = ROOT / "src" / "templates"
+MANIFEST = ROOT / ".generated-pages.json"
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 IDENTIFIER = re.compile(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*\Z")
+OWNED_ROUTE = re.compile(
+    r"(?:products|collections)/[a-z0-9]+(?:-[a-z0-9]+)*/index\.html\Z"
+)
+SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
 class CatalogError(ValueError):
@@ -85,6 +91,7 @@ def validate_catalog(data):
         localized(collection.get("text"), f"{where}.text", ("name",))
 
     referenced = set()
+    product_ids = set()
     for index, product in enumerate(products):
         where = f"products[{index}]"
         require_object(product, where)
@@ -93,6 +100,7 @@ def validate_catalog(data):
             if not pattern.fullmatch(value) or value in seen:
                 raise CatalogError(f"{where}.{key}: duplicate or invalid {key}: {value}")
             seen.add(value)
+        product_ids.add(product["id"])
         membership = require_list(product.get("collection_ids"),
                                   f"{where}.collection_ids", nonempty=True)
         for collection_id in membership:
@@ -139,6 +147,14 @@ def validate_catalog(data):
     for collection in collections:
         if collection["id"] not in referenced:
             raise CatalogError(f"collection {collection['id']}: no products reference it")
+    featured = require_list(data.get("featured_product_ids"), "featured_product_ids")
+    for product_id in featured:
+        require_text(product_id, "featured_product_ids")
+    if len(featured) != len(set(featured)):
+        raise CatalogError("featured_product_ids: duplicate product ID")
+    for product_id in featured:
+        if product_id not in product_ids:
+            raise CatalogError(f"featured_product_ids: unknown product {product_id}")
     return data
 
 
@@ -177,6 +193,21 @@ def product_card(product, root):
     )
 
 
+def home_product_card(product):
+    tr = product["text"]["tr"]
+    image = product["images"][0]
+    price = format_price(product)
+    return template(
+        "home-product-card.html",
+        product_url=f"products/{product['slug']}/",
+        image_url=image["path"],
+        image_alt=escape(image["alt"]["tr"]),
+        name=escape(tr["name"]),
+        size=escape(tr.get("size", tr["short_description"])),
+        price=f'<p class="product-price">{escape(price)}</p>' if price else "",
+    )
+
+
 def page(body, root, title, description, collections, current_collection=None):
     navigation_links = []
     for item in collections:
@@ -195,7 +226,16 @@ def page(body, root, title, description, collections, current_collection=None):
 def render_pages(data):
     pages = {}
     published = [item for item in data["products"] if item["status"] == "published"]
+    published_by_id = {item["id"]: item for item in published}
+    featured = [published_by_id[product_id] for product_id in data["featured_product_ids"]
+                if product_id in published_by_id]
     collections = {item["id"]: item for item in data["collections"]}
+    perfumes = collections.get("perfumes")
+    pages[ROOT / "index.html"] = template(
+        "home.html", featured_cards="\n".join(home_product_card(item) for item in featured),
+        perfumes_url=f"collections/{perfumes['slug']}/" if perfumes else "#perfumes",
+        perfumes_name=escape(perfumes["text"]["tr"]["name"]) if perfumes else "Parfümler",
+    )
     links = "\n".join(
         f'<li><a href="../collections/{item["slug"]}/">'
         f'{escape(item["text"]["tr"]["name"])}</a></li>'
@@ -267,6 +307,116 @@ def no_duplicate_keys(pairs):
     return result
 
 
+def output_path(relative):
+    if relative not in ("index.html", "products/index.html") and not OWNED_ROUTE.fullmatch(relative):
+        raise CatalogError(f"unsafe generated-output path: {relative}")
+    path = ROOT / relative
+    current = path
+    while current != ROOT:
+        if current.is_symlink():
+            raise CatalogError(f"generated-output path uses a symlink: {relative}")
+        current = current.parent
+    if not path.resolve().is_relative_to(ROOT):
+        raise CatalogError(f"generated-output path escapes repository: {relative}")
+    return path
+
+
+def content_hash(content):
+    return hashlib.sha256(content).hexdigest()
+
+
+def load_manifest():
+    if MANIFEST.is_symlink():
+        raise CatalogError("ownership manifest must not be a symlink")
+    if not MANIFEST.exists():
+        return None
+    data = require_object(
+        json.loads(MANIFEST.read_text(encoding="utf-8"), object_pairs_hook=no_duplicate_keys),
+        "ownership manifest",
+    )
+    if data.get("version") != 1 or set(data) != {"version", "files"}:
+        raise CatalogError("ownership manifest: unsupported format")
+    files = require_object(data["files"], "ownership manifest.files")
+    for relative, digest in files.items():
+        output_path(relative)
+        if not isinstance(digest, str) or not SHA256.fullmatch(digest):
+            raise CatalogError(f"ownership manifest: invalid hash for {relative}")
+    return files
+
+
+def normalized_pages(pages):
+    result = {}
+    for path, content in pages.items():
+        relative = path.relative_to(ROOT).as_posix()
+        output_path(relative)
+        result[relative] = ("\n".join(line.rstrip() for line in content.splitlines())
+                            + "\n").encode("utf-8")
+    return result
+
+
+def build(pages, check):
+    expected = normalized_pages(pages)
+    previous = load_manifest()
+    owned = previous or {}
+    hashes = {relative: content_hash(content) for relative, content in sorted(expected.items())}
+    outdated = []
+    obsolete = sorted(set(owned) - set(expected))
+
+    # Complete all ownership and collision checks before writing or removing anything.
+    for relative, content in expected.items():
+        path = output_path(relative)
+        if path.exists():
+            if not path.is_file():
+                raise CatalogError(f"generated-output path is not a file: {relative}")
+            actual = path.read_bytes()
+            if relative in owned and content_hash(actual) != owned[relative]:
+                raise CatalogError(f"generator-owned file was edited outside the build: {relative}")
+            if relative not in owned and actual != content:
+                raise CatalogError(f"unowned file blocks generated route: {relative}")
+            if actual != content:
+                outdated.append(relative)
+        else:
+            outdated.append(relative)
+
+    for relative in obsolete:
+        path = output_path(relative)
+        if path.exists():
+            if not path.is_file() or content_hash(path.read_bytes()) != owned[relative]:
+                raise CatalogError(f"obsolete generated file was edited outside the build: {relative}")
+
+    manifest_content = (json.dumps({"version": 1, "files": hashes}, indent=2,
+                                   ensure_ascii=False, sort_keys=True) + "\n").encode("utf-8")
+    manifest_outdated = not MANIFEST.is_file() or MANIFEST.read_bytes() != manifest_content
+    if check:
+        problems = []
+        if outdated:
+            problems.append("missing or outdated: " + ", ".join(outdated))
+        if obsolete:
+            problems.append("obsolete owned routes: " + ", ".join(obsolete))
+        if manifest_outdated:
+            problems.append("ownership manifest missing or outdated")
+        if problems:
+            raise CatalogError("; ".join(problems))
+        return 0, 0
+
+    for relative in outdated:
+        path = output_path(relative)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(expected[relative])
+    for relative in obsolete:
+        path = output_path(relative)
+        if path.exists():
+            path.unlink()
+        if relative not in ("index.html", "products/index.html"):
+            try:
+                path.parent.rmdir()  # Only an empty, directly owned slug directory.
+            except OSError:
+                pass
+    if manifest_outdated:
+        MANIFEST.write_bytes(manifest_content)
+    return len(outdated), len(obsolete)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="validate and check generated files")
@@ -275,20 +425,11 @@ def main():
         source = (ROOT / "data" / "catalog.json").read_text(encoding="utf-8")
         data = validate_catalog(json.loads(source, object_pairs_hook=no_duplicate_keys))
         pages = render_pages(data)
-        changed = []
-        for path, content in pages.items():
-            content = "\n".join(line.rstrip() for line in content.splitlines()) + "\n"
-            if not path.is_file() or path.read_text(encoding="utf-8") != content:
-                changed.append(path.relative_to(ROOT).as_posix())
-                if not args.check:
-                    path.parent.mkdir(parents=True, exist_ok=True)
-                    path.write_text(content, encoding="utf-8")
-        if args.check and changed:
-            raise CatalogError("generated pages missing or outdated: " + ", ".join(changed))
+        changed, removed = build(pages, args.check)
         verb = "checked" if args.check else "generated"
         print(f"Catalog valid: {len(data['products'])} products, "
               f"{len(data['collections'])} collections; {verb} {len(pages)} pages "
-              f"({len(changed)} changed).")
+              f"({changed} changed, {removed} removed).")
     except (CatalogError, OSError, json.JSONDecodeError, KeyError) as error:
         print(f"Catalog error: {error}", file=sys.stderr)
         return 1

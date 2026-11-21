@@ -1,0 +1,12 @@
+{
+  "files": {
+    "collections/perfumes/index.html": "67eb342fa5bd5ae8e5ef3f4bd71dc72510afe43ef3cf7b1ba31bc5c56c7b0371",
+    "index.html": "a8babfcf89d7e82397f5d581834034fe15f1ee29c800f23af41e48747aebe080",
+    "products/amber-noire/index.html": "d0dc668c427f4c3f8443369f10caa2d28dffe5ce97044d2e751a421d8177353a",
+    "products/fleur-blanche/index.html": "73667148089124b2624f1898fc9eb4cc4fdfb71cfd44634368c9a38486ce6477",
+    "products/index.html": "ae0f318f2ee63baacd3eee45f50794725c00789b256404a440234a215e907837",
+    "products/lavande-mystique/index.html": "06f6756d196f89ed2a5e9f17df547897a43b8ae76e5bb72bc7d58091e39e3d87",
+    "products/rose-elegance/index.html": "318ce7fbe5f309337ee4e43b71723a8d6ea54d7bc8ca75dc525f24df3ec97c2c"
+  },
+  "version": 1
+}
