@@ -16,5 +16,5 @@ From the repository root, run `python3 -m http.server 8000` and open
 - Product names, sizes, types, and prices are demonstrative. Real catalog details, contact
   information, legal text, and commerce functions require confirmation.
 - Search, account, wishlist, and cart symbols are noninteractive. The mobile menu is functional.
-- The desktop visual styling follows the approved reference. Mobile visual refinement and
-  independent production photography are deferred.
+- The responsive styling follows the approved reference from phone through wide desktop.
+  Independent production photography is deferred.

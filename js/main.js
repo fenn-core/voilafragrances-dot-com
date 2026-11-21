@@ -32,7 +32,7 @@
     }
   });
 
-  window.matchMedia('(min-width: 70.001rem)').addEventListener('change', (event) => {
+  window.matchMedia('(min-width: 75.001rem)').addEventListener('change', (event) => {
     if (event.matches) {
       setMenuOpen(false);
     }
