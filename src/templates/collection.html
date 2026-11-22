@@ -1,17 +1,17 @@
       <div class="container catalog-page">
-        <nav class="catalog-breadcrumbs" aria-label="İçerik yolu">
-          <ol><li><a href="${root}index.html">Ana Sayfa</a></li>
-            <li><a href="${root}products/">Ürünler</a></li><li aria-current="page">$name</li></ol>
+        <nav class="catalog-breadcrumbs" aria-label="$ui_breadcrumb">
+          <ol><li><a href="${local_root}index.html">$ui_home_title</a></li>
+            <li><a href="${local_root}products/">$ui_products_title</a></li><li aria-current="page">$name</li></ol>
         </nav>
         <header class="catalog-intro">
           <p class="eyebrow catalog-kicker">VOILA FRAGRANCES</p>
           <h1>$name</h1>
           $description
-          <p class="catalog-demo-note">Bu koleksiyondaki ürünler ve fiyatlar temsilîdir.</p>
+          <p class="catalog-demo-note">$ui_collection_note</p>
         </header>
         <section aria-labelledby="collection-products-title">
           <div class="section-heading catalog-section-heading">
-            <h2 id="collection-products-title">Ürünler</h2>
+            <h2 id="collection-products-title">$ui_products_title</h2>
           </div>
           <div class="product-grid">
 $product_cards

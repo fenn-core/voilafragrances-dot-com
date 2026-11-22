@@ -19,12 +19,16 @@
 
   const siteRoot = new URL(script.dataset.cartRoot || './', document.baseURI);
   const locale = document.documentElement.lang || 'tr';
+  const productPrefix = locale === 'tr' ? 'products/' : `${locale}/products/`;
   const wholeFormatter = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
   const decimalSeparator = new Intl.NumberFormat(locale, { minimumFractionDigits: 1 })
     .formatToParts(1).find((part) => part.type === 'decimal').value;
-  const currencySymbol = new Intl.NumberFormat(locale, {
+  const currencyParts = new Intl.NumberFormat(locale, {
     style: 'currency', currency: 'TRY',
-  }).formatToParts(0).find((part) => part.type === 'currency').value;
+  }).formatToParts(0);
+  const currencySymbol = currencyParts.find((part) => part.type === 'currency').value;
+  const currencyBefore = currencyParts.findIndex((part) => part.type === 'currency') <
+    currencyParts.findIndex((part) => part.type === 'integer');
 
   let storage = null;
   let products = new Map();
@@ -36,7 +40,8 @@
     const fraction = minorUnits % 100n;
     const decimals = fraction === 0n ? '' :
       `${decimalSeparator}${fraction.toString().padStart(2, '0')}`;
-    return `${wholeFormatter.format(whole)}${decimals} ${currencySymbol}`;
+    const number = `${wholeFormatter.format(whole)}${decimals}`;
+    return currencyBefore ? `${currencySymbol} ${number}` : `${number} ${currencySymbol}`;
   }
 
   function getStorage() {
@@ -52,7 +57,8 @@
   }
 
   function validatePublicCatalog(data) {
-    if (!data || data.schema_version !== 1 || !Array.isArray(data.products)) {
+    if (!data || data.schema_version !== 1 || data.locale !== locale ||
+        !Array.isArray(data.products)) {
       throw new Error('Invalid public catalog');
     }
     const validated = new Map();
@@ -61,7 +67,8 @@
           !/^[a-z][a-z0-9-]*$/.test(product.id) ||
           typeof product.name !== 'string' || !product.name.trim() ||
           typeof product.url !== 'string' ||
-          !/^products\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(product.url) ||
+          !product.url.startsWith(productPrefix) ||
+          !/^[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(product.url.slice(productPrefix.length)) ||
           typeof product.image !== 'string' ||
           !/^assets\/images\/.+\.(?:webp|png|jpe?g)$/i.test(product.image) ||
           /[\\?#\u0000-\u001f]/.test(product.image) ||

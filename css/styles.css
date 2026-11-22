@@ -229,6 +229,34 @@ a {
   display: none;
 }
 
+.language-switch {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.language-switch a {
+  display: grid;
+  place-items: center;
+  min-width: 2rem;
+  min-height: 2.75rem;
+  text-decoration: none;
+}
+
+.language-switch a[aria-current='page'] {
+  color: var(--color-brand-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand-pink);
+  text-underline-offset: 0.3rem;
+}
+
+.language-switch span {
+  color: var(--color-muted);
+}
+
 .menu-toggle {
   display: none;
   align-items: center;

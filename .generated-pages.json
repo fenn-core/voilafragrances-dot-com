@@ -1,16 +1,27 @@
 {
   "files": {
-    "about/index.html": "be67713a7594a9e4a29909e6eb07e38f297c98953949904538fc9cb5fe3174a7",
-    "cart/index.html": "8e227f721026cb5819baeb45b32ac1e633d66272eff5abdbce7e14afe25c6bc1",
-    "collections/perfumes/index.html": "659eff1dfadc4ba5ce972b9dda2b47c3bad4f47e7c6391c7314e14e4ac5b17c4",
-    "contact/index.html": "a5873acfe7a66d5777865359e078136a3e86d33f77ddce7529ad09b877637256",
+    "about/index.html": "3f7d4d10517ec6c8f2be3a197c096b1ba8065ccd1408ce7c794056a8e902fc65",
+    "cart/index.html": "75c07b14789d4b2d7398837f0a263e5d4efa0f0d214f19cd744acca04b6b85ce",
+    "collections/perfumes/index.html": "d0c8c0f28ef143a68fffaef931b5aac45cd8065c56325e24d0ef0526f9773016",
+    "contact/index.html": "31954eef146c8585d212cdf3f4bc1be196f1b0f3ff0eac1be518d76e0a6e3790",
     "data/public-catalog.json": "d620a3bb2132432a63cefd400f7abf3ad7f0255d90b8fd148143449d3e6d8e52",
-    "index.html": "d2fa6922e859a2258248f608017f3d5dc0695b91aa1a9bb44c1829da72810c08",
-    "products/amber-noire/index.html": "027d579bb9e92dad0b6ebf5b3710cc329b3a3326e90dc474e92461b167e7db3f",
-    "products/fleur-blanche/index.html": "21f1689fe9990e9119dd5e90f104ccd50a265e9803963974603f2079ba13f966",
-    "products/index.html": "dc44c68520553ce0bed631d9f139bfe67e9926d9849e1fe4e26e724d1da8b662",
-    "products/lavande-mystique/index.html": "50fd4c4711f5e62d500ebcfceb1c29b2d7f934e08315c36e90ea07adcb00e6b4",
-    "products/rose-elegance/index.html": "83fd57e874f876898499a2904f1aebc912c7f6656935ff503d605e88ccc367e5"
+    "en/about/index.html": "0fa20d42f89251f9aa8f53b5c777fa247725b9b9fb18de640aa73c1bed770a1e",
+    "en/cart/index.html": "d09a1101472025f8b3c91016f451031ce8b7553b93f2d9e180aafe8b04cf6a18",
+    "en/collections/perfumes/index.html": "58ab5f1a4378fce52d27217e3f8af24cb78a7a1f7017c6c976599ccc7aa00641",
+    "en/contact/index.html": "35798ecdd770985e38b562d21c6d434c7f8708a9e570fdc449c0b8e2512881cc",
+    "en/data/public-catalog.json": "990c38ae0e7502848016f6af8db1d43acd76c657ebf15e6a726f1a58b32a53f7",
+    "en/index.html": "63613b5152853d51382eb5fd804367e0b92c9b68da17368707ef8e2c6f7ddead",
+    "en/products/amber-noire/index.html": "06c5281b1b99a0c8afabe4020d1d7335aba1271f70d589f9b3b4b8e56f5c0538",
+    "en/products/fleur-blanche/index.html": "8e687d7b61fc928850c0f359cb92295152d9855ed9316fe620dfdfda171c7cc8",
+    "en/products/index.html": "776f17490229d38537b6599e3ac9181289130199be7bfa8eb860a28038adb49b",
+    "en/products/lavande-mystique/index.html": "2e5ca3671750f54f0d7bb5884a85265f4e10f0686554ecd0421b4a70c0870d95",
+    "en/products/rose-elegance/index.html": "50089e3dd857c99e1fee896aef64b02fb7722c262bdd2331dc2c1a2a10f13ecc",
+    "index.html": "bbc031f293a83a25258e1dda2c1a3a645b534d7eccf7933f2882526c72f1b08e",
+    "products/amber-noire/index.html": "a80b13bc4a64ee1bebe768d12f66d8aa84ad69c6fa7ffa3b2c08c2b4674642ba",
+    "products/fleur-blanche/index.html": "7a0864548d6d20de06c897c41ee2181e9c3a12562270d86d63a149834c2b3cac",
+    "products/index.html": "a87c9f31a829166ee42dcf1d3e571090859c5a323b391f90a1dda34b3ae1fcb9",
+    "products/lavande-mystique/index.html": "dd10d4e1b77d56e0188b4bd2c82906f921299e246a73e441a7fa6838772dd4c1",
+    "products/rose-elegance/index.html": "05384ee2325edbdfd0f158b71f56964ece4511df665f5d63165b7616d828652b"
   },
   "version": 1
 }

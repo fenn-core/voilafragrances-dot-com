@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Demonstration VOILA FRAGRANCES cart.">
+    <title>Your Cart | VOILA FRAGRANCES</title>
+    <link rel="alternate" hreflang="tr" href="/cart/">
+    <link rel="alternate" hreflang="en" href="/en/cart/">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/cart.js" data-cart-catalog="../data/public-catalog.json"
+      data-cart-root="../../" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="announcement-bar">
+      <div class="container"><p>Welcome to the world of VOILA FRAGRANCES.</p></div>
+    </div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand-link" href="../index.html" aria-label="VOILA FRAGRANCES home">
+          <img src="../../assets/logos/logo.png" alt="VOILA FRAGRANCES logo"
+            width="64" height="64">
+        </a>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation"
+          aria-expanded="false" aria-label="Open menu" data-label-open="Open menu"
+          data-label-close="Close menu">
+          <span class="menu-toggle-icon" aria-hidden="true"></span><span>Menu</span>
+        </button>
+        <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+          <ul class="navigation-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../collections/perfumes/">Perfumes</a></li>
+            <li><a href="../index.html#home-fragrance">Home Fragrance</a></li>
+            <li><a href="../index.html#candles">Candles</a></li>
+            <li><a href="../index.html#gift-sets">Gift Sets</a></li>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../contact/">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-icon-areas" aria-label="Site tools">
+          <span class="header-icon-area" title="Search is not available yet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              aria-hidden="true" focusable="false">
+              <circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path>
+            </svg><span class="visually-hidden">Search coming soon</span>
+          </span>
+          <span class="header-icon-area" title="Accounts are not available yet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              aria-hidden="true" focusable="false">
+              <circle cx="12" cy="7.5" r="3.5"></circle>
+              <path d="M4.5 21v-2.5a7.5 7.5 0 0 1 15 0V21"></path>
+            </svg><span class="visually-hidden">Accounts coming soon</span>
+          </span>
+          <a class="header-icon-area cart-link" href="../cart/" aria-label="Cart"
+            data-cart-link data-cart-label="Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+              aria-hidden="true" focusable="false">
+              <path d="M4 7h16l-1.5 13h-13L4 7Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+            </svg><span class="cart-count-badge" data-cart-count hidden>0</span>
+          </a>
+          <nav class="language-switch" aria-label="Choose language">
+            <a href="../../cart/" lang="tr" hreflang="tr" aria-label="Türkçe">TR</a>
+            <span aria-hidden="true">/</span>
+            <a href="../../en/cart/" lang="en" hreflang="en" aria-label="English" aria-current="page">EN</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main id="main-content">
+      <div class="container cart-page" data-cart-page
+        data-unit-price-label="Unit price:"
+        data-line-total-label="Line total:"
+        data-price-missing-label="Price unavailable"
+        data-subtotal-missing-label="Unavailable"
+        data-increase-label="Increase quantity:"
+        data-decrease-label="Decrease quantity:"
+        data-remove-label="Remove product:">
+        <nav class="catalog-breadcrumbs" aria-label="Breadcrumb">
+          <ol><li><a href="../index.html">Home</a></li>
+            <li aria-current="page">Your Cart</li></ol>
+        </nav>
+        <header class="cart-intro">
+          <p class="eyebrow">VOILA FRAGRANCES</p>
+          <h1>Your Cart</h1>
+          <p>Review products in your demo cart.</p>
+          <p class="catalog-demo-note">Products and prices are for demonstration only. Real orders cannot be placed on this site yet.</p>
+        </header>
+        <p class="cart-state-message" data-cart-loading>Loading cart...</p>
+        <noscript><p class="cart-state-message">JavaScript is required to view the cart.</p></noscript>
+        <p class="cart-state-message" data-cart-error hidden>
+          The cart cannot be displayed right now. Please try again later.
+        </p>
+        <p class="cart-state-message" data-cart-storage-error hidden>
+          Browser storage is unavailable. The cart cannot be used in this browser.
+        </p>
+        <div class="cart-empty" data-cart-empty hidden>
+          <p>Your cart is empty.</p>
+          <a class="button button-secondary" href="../products/">Back to Products</a>
+        </div>
+        <div class="cart-layout" data-cart-content hidden>
+          <section class="cart-items" aria-labelledby="cart-items-title">
+            <h2 class="visually-hidden" id="cart-items-title">Items in Your Cart</h2>
+            <div data-cart-items></div>
+            <a class="cart-continue-link" href="../products/">Back to Products</a>
+          </section>
+          <aside class="cart-summary" aria-labelledby="cart-summary-title">
+            <h2 id="cart-summary-title">Cart Summary</h2>
+            <p class="cart-subtotal"><span>Subtotal</span>
+              <strong data-cart-subtotal></strong></p>
+            <p class="cart-subtotal-note" data-cart-subtotal-note hidden>
+              A complete subtotal cannot be shown because some products have no price.
+            </p>
+            <button class="cart-clear-button" type="button" data-cart-clear>Clear Cart</button>
+            <button class="button button-primary cart-checkout-button" type="button" disabled>
+              Checkout
+            </button>
+            <p class="cart-checkout-note">Online purchasing is not available yet.</p>
+          </aside>
+        </div>
+      </div>
+      <template id="cart-item-template">
+        <article class="cart-item">
+          <a class="cart-item-image-link" data-item-image-link>
+            <img data-item-image width="285" height="200" alt="">
+          </a>
+          <div class="cart-item-info">
+            <h2><a data-item-name-link></a></h2>
+            <p class="cart-item-unit-price" data-item-unit-price></p>
+            <div class="cart-item-controls">
+              <button type="button" data-item-decrease>−</button>
+              <output data-item-quantity></output>
+              <button type="button" data-item-increase>+</button>
+              <button class="cart-remove-button" type="button" data-item-remove>Remove</button>
+            </div>
+          </div>
+          <p class="cart-item-line-total" data-item-total></p>
+        </article>
+      </template>
+
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <section aria-labelledby="footer-about-title">
+          <h2 id="footer-about-title">VOILA FRAGRANCES</h2>
+          <p>Brand information will be added soon.</p>
+        </section>
+        <nav aria-label="Footer navigation">
+          <h2>Explore</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../products/">Collection</a></li>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../contact/">Contact</a></li>
+          </ul>
+        </nav>
+        <section aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact</h2>
+          <p>Further contact details will be added soon.</p>
+        </section>
+        <section aria-labelledby="footer-legal-title">
+          <h2 id="footer-legal-title">Legal Information</h2>
+          <p>Legal information is being prepared.</p>
+        </section>
+      </div>
+    </footer>
+    <p class="cart-feedback" role="status" aria-live="polite" data-cart-feedback
+      data-added-text="Added to your demo cart."
+      data-unavailable-text="The cart is currently unavailable." hidden></p>
+  </body>
+</html>

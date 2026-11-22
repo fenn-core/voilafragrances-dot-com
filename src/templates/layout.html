@@ -1,63 +1,70 @@
 <!doctype html>
-<html lang="tr">
+<html lang="$locale">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="$meta_description">
     <title>$page_title | VOILA FRAGRANCES</title>
+    <link rel="alternate" hreflang="tr" href="$tr_alternate">
+    <link rel="alternate" hreflang="en" href="$en_alternate">
     <link rel="stylesheet" href="${root}css/styles.css">
     <script src="${root}js/main.js" defer></script>
-    <script src="${root}js/cart.js" data-cart-catalog="${root}data/public-catalog.json"
+    <script src="${root}js/cart.js" data-cart-catalog="${local_root}data/public-catalog.json"
       data-cart-root="$root" defer></script>
   </head>
   <body id="top">
-    <a class="skip-link" href="#main-content">İçeriğe geç</a>
+    <a class="skip-link" href="#main-content">$ui_skip</a>
     <div class="announcement-bar">
-      <div class="container"><p>VOILA FRAGRANCES dünyasına hoş geldiniz.</p></div>
+      <div class="container"><p>$ui_announcement</p></div>
     </div>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand-link" href="${root}index.html" aria-label="VOILA FRAGRANCES ana sayfa">
-          <img src="${root}assets/logos/logo.png" alt="VOILA FRAGRANCES logosu"
+        <a class="brand-link" href="${local_root}index.html" aria-label="$ui_logo_label">
+          <img src="${root}assets/logos/logo.png" alt="$ui_logo_alt"
             width="64" height="64">
         </a>
         <button class="menu-toggle" type="button" aria-controls="primary-navigation"
-          aria-expanded="false" aria-label="Menüyü aç" data-label-open="Menüyü aç"
-          data-label-close="Menüyü kapat">
-          <span class="menu-toggle-icon" aria-hidden="true"></span><span>Menü</span>
+          aria-expanded="false" aria-label="$ui_menu_open" data-label-open="$ui_menu_open"
+          data-label-close="$ui_menu_close">
+          <span class="menu-toggle-icon" aria-hidden="true"></span><span>$ui_menu</span>
         </button>
-        <nav class="primary-navigation" id="primary-navigation" aria-label="Ana menü">
+        <nav class="primary-navigation" id="primary-navigation" aria-label="$ui_main_nav">
           <ul class="navigation-list">
-            <li><a href="${root}index.html">Ana Sayfa</a></li>
+            <li><a href="${local_root}index.html">$ui_home_title</a></li>
             $collection_navigation
-            <li><a href="${root}index.html#home-fragrance">Oda Kokuları</a></li>
-            <li><a href="${root}index.html#candles">Mumlar</a></li>
-            <li><a href="${root}index.html#gift-sets">Hediye Setleri</a></li>
-            <li><a href="${root}about/"$about_current>Hakkımızda</a></li>
-            <li><a href="${root}contact/"$contact_current>İletişim</a></li>
+            <li><a href="${local_root}index.html#home-fragrance">$ui_nav_home_fragrance</a></li>
+            <li><a href="${local_root}index.html#candles">$ui_nav_candles</a></li>
+            <li><a href="${local_root}index.html#gift-sets">$ui_nav_gifts</a></li>
+            <li><a href="${local_root}about/"$about_current>$ui_about_title</a></li>
+            <li><a href="${local_root}contact/"$contact_current>$ui_contact_title</a></li>
           </ul>
         </nav>
-        <div class="header-icon-areas" aria-label="Site araçları">
-          <span class="header-icon-area" title="Arama henüz kullanıma açık değil">
+        <div class="header-icon-areas" aria-label="$ui_tools">
+          <span class="header-icon-area" title="$ui_search_title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path>
-            </svg><span class="visually-hidden">Arama alanı yakında</span>
+            </svg><span class="visually-hidden">$ui_search_wait</span>
           </span>
-          <span class="header-icon-area" title="Hesap henüz kullanıma açık değil">
+          <span class="header-icon-area" title="$ui_account_title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <circle cx="12" cy="7.5" r="3.5"></circle>
               <path d="M4.5 21v-2.5a7.5 7.5 0 0 1 15 0V21"></path>
-            </svg><span class="visually-hidden">Hesap alanı yakında</span>
+            </svg><span class="visually-hidden">$ui_account_wait</span>
           </span>
-          <a class="header-icon-area cart-link" href="${root}cart/" aria-label="Sepet"
-            data-cart-link data-cart-label="Sepet">
+          <a class="header-icon-area cart-link" href="${local_root}cart/" aria-label="$ui_cart_short"
+            data-cart-link data-cart-label="$ui_cart_short">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <path d="M4 7h16l-1.5 13h-13L4 7Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
             </svg><span class="cart-count-badge" data-cart-count hidden>0</span>
           </a>
+          <nav class="language-switch" aria-label="$ui_language_nav">
+            <a href="$tr_switch" lang="tr" hreflang="tr" aria-label="$ui_language_tr"$tr_current>TR</a>
+            <span aria-hidden="true">/</span>
+            <a href="$en_switch" lang="en" hreflang="en" aria-label="$ui_language_en"$en_current>EN</a>
+          </nav>
         </div>
       </div>
     </header>
@@ -68,29 +75,29 @@ $main
       <div class="container footer-grid">
         <section aria-labelledby="footer-about-title">
           <h2 id="footer-about-title">VOILA FRAGRANCES</h2>
-          <p>Marka bilgileri yakında eklenecek.</p>
+          <p>$ui_footer_brand_wait</p>
         </section>
-        <nav aria-label="Alt menü">
-          <h2>Gezinme</h2>
+        <nav aria-label="$ui_footer_nav">
+          <h2>$ui_footer_navigation</h2>
           <ul class="footer-links">
-            <li><a href="${root}index.html">Ana Sayfa</a></li>
-            <li><a href="${root}products/">Koleksiyon</a></li>
-            <li><a href="${root}about/">Hakkımızda</a></li>
-            <li><a href="${root}contact/">İletişim</a></li>
+            <li><a href="${local_root}index.html">$ui_home_title</a></li>
+            <li><a href="${local_root}products/">$ui_nav_collection</a></li>
+            <li><a href="${local_root}about/">$ui_about_title</a></li>
+            <li><a href="${local_root}contact/">$ui_contact_title</a></li>
           </ul>
         </nav>
         <section aria-labelledby="footer-contact-title">
-          <h2 id="footer-contact-title">İletişim</h2>
-          <p>İletişim bilgileri yakında eklenecek.</p>
+          <h2 id="footer-contact-title">$ui_contact_title</h2>
+          <p>$ui_footer_contact_wait</p>
         </section>
         <section aria-labelledby="footer-legal-title">
-          <h2 id="footer-legal-title">Yasal Bilgiler</h2>
-          <p>Yasal metinler hazırlık aşamasındadır.</p>
+          <h2 id="footer-legal-title">$ui_footer_legal_title</h2>
+          <p>$ui_footer_legal_wait</p>
         </section>
       </div>
     </footer>
     <p class="cart-feedback" role="status" aria-live="polite" data-cart-feedback
-      data-added-text="Deneme sepetine eklendi."
-      data-unavailable-text="Sepet şu anda kullanılamıyor." hidden></p>
+      data-added-text="$ui_feedback_added"
+      data-unavailable-text="$ui_feedback_unavailable" hidden></p>
   </body>
 </html>

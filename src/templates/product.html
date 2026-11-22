@@ -1,8 +1,8 @@
       <div class="container catalog-page">
         <article class="catalog-detail">
-          <nav class="catalog-breadcrumbs catalog-detail-breadcrumbs" aria-label="İçerik yolu">
-            <ol><li><a href="${root}index.html">Ana Sayfa</a></li>
-              <li><a href="${root}products/">Ürünler</a></li>
+          <nav class="catalog-breadcrumbs catalog-detail-breadcrumbs" aria-label="$ui_breadcrumb">
+            <ol><li><a href="${local_root}index.html">$ui_home_title</a></li>
+              <li><a href="${local_root}products/">$ui_products_title</a></li>
               <li><a href="$collection_url">$collection_name</a></li>
               <li aria-current="page">$name</li></ol>
           </nav>
@@ -20,10 +20,10 @@
               $variants
               $price
             </div>
-            <p class="catalog-demo-note">Temsilî ürün: bilgiler, görseller ve fiyat örnek amaçlıdır.</p>
+            <p class="catalog-demo-note">$ui_demo_product_note</p>
             <button class="button button-primary catalog-detail-add" type="button"
-              data-cart-add="$product_id" aria-label="$add_label" disabled>Deneme Sepetine Ekle</button>
-            <p><a class="catalog-back-link" href="$collection_url">$collection_name koleksiyonuna dön</a></p>
+              data-cart-add="$product_id" aria-label="$add_label" disabled>$ui_add_detail</button>
+            <p><a class="catalog-back-link" href="$collection_url">$back_label</a></p>
           </div>
         </article>
       </div>

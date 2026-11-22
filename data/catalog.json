@@ -13,6 +13,9 @@
       "text": {"tr": {
         "name": "Parfümler",
         "description": "VOILA FRAGRANCES temsilî parfüm kataloğu. Ürün bilgileri ve fiyatlar örnek amaçlıdır."
+      }, "en": {
+        "name": "Perfumes",
+        "description": "A demonstration perfume catalog for VOILA FRAGRANCES. Product details and prices are examples only."
       }}
     }
   ],
@@ -21,7 +24,7 @@
       "id": "product-rose-elegance",
       "slug": "rose-elegance",
       "collection_ids": ["perfumes"],
-      "images": [{"path": "assets/images/product-rose.webp", "alt": {"tr": "Pembe parfüm şişesi ve çiçek"}}],
+      "images": [{"path": "assets/images/product-rose.webp", "alt": {"tr": "Pembe parfüm şişesi ve çiçek", "en": "Pink perfume bottle beside a flower"}}],
       "price_minor": 129000,
       "currency": "TRY",
       "status": "published",
@@ -31,13 +34,18 @@
         "short_description": "Temsilî parfüm ürünü",
         "description": "Rosé Élégance, katalog yapısını göstermek için kullanılan temsilî bir üründür. Ürün özellikleri ve satış bilgileri henüz doğrulanmamıştır.",
         "size": "50 ml Eau de Parfum"
+      }, "en": {
+        "name": "Rosé Élégance",
+        "short_description": "Demonstration fragrance",
+        "description": "Rosé Élégance is a sample product used to illustrate the catalog. Its specifications and sales information have not been verified.",
+        "size": "50 ml Eau de Parfum"
       }}
     },
     {
       "id": "product-amber-noire",
       "slug": "amber-noire",
       "collection_ids": ["perfumes"],
-      "images": [{"path": "assets/images/product-amber.webp", "alt": {"tr": "Kehribar tonlarında parfüm şişesi"}}],
+      "images": [{"path": "assets/images/product-amber.webp", "alt": {"tr": "Kehribar tonlarında parfüm şişesi", "en": "Amber-toned perfume bottle"}}],
       "price_minor": 129000,
       "currency": "TRY",
       "status": "published",
@@ -47,13 +55,18 @@
         "short_description": "Temsilî parfüm ürünü",
         "description": "Amber Noire, katalog yapısını göstermek için kullanılan temsilî bir üründür. Ürün özellikleri ve satış bilgileri henüz doğrulanmamıştır.",
         "size": "50 ml Eau de Parfum"
+      }, "en": {
+        "name": "Amber Noire",
+        "short_description": "Demonstration fragrance",
+        "description": "Amber Noire is a sample product used to illustrate the catalog. Its specifications and sales information have not been verified.",
+        "size": "50 ml Eau de Parfum"
       }}
     },
     {
       "id": "product-lavande-mystique",
       "slug": "lavande-mystique",
       "collection_ids": ["perfumes"],
-      "images": [{"path": "assets/images/product-lavender.webp", "alt": {"tr": "Mor tonlarında parfüm şişesi ve lavanta"}}],
+      "images": [{"path": "assets/images/product-lavender.webp", "alt": {"tr": "Mor tonlarında parfüm şişesi ve lavanta", "en": "Purple perfume bottle with lavender"}}],
       "price_minor": 129000,
       "currency": "TRY",
       "status": "published",
@@ -63,13 +76,18 @@
         "short_description": "Temsilî parfüm ürünü",
         "description": "Lavande Mystique, katalog yapısını göstermek için kullanılan temsilî bir üründür. Ürün özellikleri ve satış bilgileri henüz doğrulanmamıştır.",
         "size": "50 ml Eau de Parfum"
+      }, "en": {
+        "name": "Lavande Mystique",
+        "short_description": "Demonstration fragrance",
+        "description": "Lavande Mystique is a sample product used to illustrate the catalog. Its specifications and sales information have not been verified.",
+        "size": "50 ml Eau de Parfum"
       }}
     },
     {
       "id": "product-fleur-blanche",
       "slug": "fleur-blanche",
       "collection_ids": ["perfumes"],
-      "images": [{"path": "assets/images/product-white-floral.webp", "alt": {"tr": "Açık renkli parfüm şişesi ve beyaz çiçekler"}}],
+      "images": [{"path": "assets/images/product-white-floral.webp", "alt": {"tr": "Açık renkli parfüm şişesi ve beyaz çiçekler", "en": "Light-colored perfume bottle with white flowers"}}],
       "price_minor": 129000,
       "currency": "TRY",
       "status": "published",
@@ -78,6 +96,11 @@
         "name": "Fleur Blanche",
         "short_description": "Temsilî parfüm ürünü",
         "description": "Fleur Blanche, katalog yapısını göstermek için kullanılan temsilî bir üründür. Ürün özellikleri ve satış bilgileri henüz doğrulanmamıştır.",
+        "size": "50 ml Eau de Parfum"
+      }, "en": {
+        "name": "Fleur Blanche",
+        "short_description": "Demonstration fragrance",
+        "description": "Fleur Blanche is a sample product used to illustrate the catalog. Its specifications and sales information have not been verified.",
         "size": "50 ml Eau de Parfum"
       }}
     }

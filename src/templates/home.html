@@ -1,68 +1,70 @@
 <!doctype html>
-<html lang="tr">
+<html lang="$locale">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="VOILA FRAGRANCES koku koleksiyonu için tanıtım sayfası.">
-    <title>VOILA FRAGRANCES | Ana Sayfa</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/main.js" defer></script>
-    <script src="js/cart.js" data-cart-catalog="data/public-catalog.json"
-      data-cart-root="" defer></script>
+    <meta name="description" content="$ui_home_meta">
+    <title>VOILA FRAGRANCES | $ui_home_title</title>
+    <link rel="alternate" hreflang="tr" href="$tr_alternate">
+    <link rel="alternate" hreflang="en" href="$en_alternate">
+    <link rel="stylesheet" href="${root}css/styles.css">
+    <script src="${root}js/main.js" defer></script>
+    <script src="${root}js/cart.js" data-cart-catalog="data/public-catalog.json"
+      data-cart-root="$root" defer></script>
   </head>
   <body id="top">
-    <a class="skip-link" href="#main-content">İçeriğe geç</a>
+    <a class="skip-link" href="#main-content">$ui_skip</a>
 
     <div class="announcement-bar">
       <div class="container">
-        <p>VOILA FRAGRANCES dünyasına hoş geldiniz.</p>
+        <p>$ui_announcement</p>
       </div>
     </div>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand-link" href="index.html" aria-label="VOILA FRAGRANCES ana sayfa">
-          <img src="assets/logos/logo.png" alt="VOILA FRAGRANCES logosu" width="64" height="64">
+        <a class="brand-link" href="index.html" aria-label="$ui_logo_label">
+          <img src="${root}assets/logos/logo.png" alt="$ui_logo_alt" width="64" height="64">
         </a>
 
         <button class="menu-toggle" type="button" aria-controls="primary-navigation"
-          aria-expanded="false" aria-label="Menüyü aç" data-label-open="Menüyü aç"
-          data-label-close="Menüyü kapat">
+          aria-expanded="false" aria-label="$ui_menu_open" data-label-open="$ui_menu_open"
+          data-label-close="$ui_menu_close">
           <span class="menu-toggle-icon" aria-hidden="true"></span>
-          <span>Menü</span>
+          <span>$ui_menu</span>
         </button>
 
-        <nav class="primary-navigation" id="primary-navigation" aria-label="Ana menü">
+        <nav class="primary-navigation" id="primary-navigation" aria-label="$ui_main_nav">
           <ul class="navigation-list">
-            <li><a href="#top" aria-current="page">Ana Sayfa</a></li>
+            <li><a href="#top" aria-current="page">$ui_home_title</a></li>
             <li><a href="$perfumes_url">$perfumes_name</a></li>
-            <li><a href="#home-fragrance">Oda Kokuları</a></li>
-            <li><a href="#candles">Mumlar</a></li>
-            <li><a href="#gift-sets">Hediye Setleri</a></li>
-            <li><a href="about/">Hakkımızda</a></li>
-            <li><a href="contact/">İletişim</a></li>
+            <li><a href="#home-fragrance">$ui_nav_home_fragrance</a></li>
+            <li><a href="#candles">$ui_nav_candles</a></li>
+            <li><a href="#gift-sets">$ui_nav_gifts</a></li>
+            <li><a href="about/">$ui_about_title</a></li>
+            <li><a href="contact/">$ui_contact_title</a></li>
           </ul>
         </nav>
 
-        <div class="header-icon-areas" aria-label="Site araçları">
-          <span class="header-icon-area" title="Arama henüz kullanıma açık değil">
+        <div class="header-icon-areas" aria-label="$ui_tools">
+          <span class="header-icon-area" title="$ui_search_title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <circle cx="10.5" cy="10.5" r="6.5"></circle>
               <path d="m15.5 15.5 5 5"></path>
             </svg>
-            <span class="visually-hidden">Arama alanı yakında</span>
+            <span class="visually-hidden">$ui_search_wait</span>
           </span>
-          <span class="header-icon-area" title="Hesap henüz kullanıma açık değil">
+          <span class="header-icon-area" title="$ui_account_title">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <circle cx="12" cy="7.5" r="3.5"></circle>
               <path d="M4.5 21v-2.5a7.5 7.5 0 0 1 15 0V21"></path>
             </svg>
-            <span class="visually-hidden">Hesap alanı yakında</span>
+            <span class="visually-hidden">$ui_account_wait</span>
           </span>
-          <a class="header-icon-area cart-link" href="cart/" aria-label="Sepet"
-            data-cart-link data-cart-label="Sepet">
+          <a class="header-icon-area cart-link" href="cart/" aria-label="$ui_cart_short"
+            data-cart-link data-cart-label="$ui_cart_short">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
               aria-hidden="true" focusable="false">
               <path d="M4 7h16l-1.5 13h-13L4 7Z"></path>
@@ -70,6 +72,11 @@
             </svg>
             <span class="cart-count-badge" data-cart-count hidden>0</span>
           </a>
+          <nav class="language-switch" aria-label="$ui_language_nav">
+            <a href="$tr_switch" lang="tr" hreflang="tr" aria-label="$ui_language_tr"$tr_current>TR</a>
+            <span aria-hidden="true">/</span>
+            <a href="$en_switch" lang="en" hreflang="en" aria-label="$ui_language_en"$en_current>EN</a>
+          </nav>
         </div>
       </div>
     </header>
@@ -79,24 +86,24 @@
         <div class="container hero-layout">
           <div class="hero-content">
             <p class="eyebrow">VOILA FRAGRANCES</p>
-            <h1 id="hero-title"><span>Koku ile</span> <span>Kendinizi İfade Edin</span></h1>
+            <h1 id="hero-title"><span>$ui_hero_first</span> <span>$ui_hero_second</span></h1>
             <p class="hero-description">
-              Koleksiyonumuzdaki kokuları ve hediye seçeneklerini keşfedin.
+              $ui_hero_description
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="products/">Koleksiyonu Keşfet</a>
-              <a class="button button-secondary" href="#gift-sets">Hediye Setleri</a>
+              <a class="button button-primary" href="products/">$ui_hero_primary</a>
+              <a class="button button-secondary" href="#gift-sets">$ui_nav_gifts</a>
             </div>
           </div>
           <div class="hero-media">
-            <img src="assets/images/hero-fragrance.webp"
-              alt="Pembe çiçekler yanında VOILA FRAGRANCES parfüm şişesi"
+            <img src="${root}assets/images/hero-fragrance.webp"
+              alt="$ui_hero_alt"
               width="900" height="394">
           </div>
         </div>
       </section>
 
-      <section class="feature-strip" aria-label="Koleksiyon alanları">
+      <section class="feature-strip" aria-label="$ui_feature_areas">
         <div class="container feature-grid">
           <article class="feature-item" id="perfumes">
             <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor"
@@ -104,8 +111,8 @@
               <path d="M17 5h14v7H17zM20 12v5h8v-5M14 17h20a4 4 0 0 1 4 4v20H10V21a4 4 0 0 1 4-4Z"></path>
             </svg>
             <div>
-              <h2>Parfümler</h2>
-              <p>Koku koleksiyonu</p>
+              <h2>$ui_perfumes</h2>
+              <p>$ui_feature_perfumes</p>
             </div>
           </article>
           <article class="feature-item" id="home-fragrance">
@@ -114,8 +121,8 @@
               <path d="M15 26h18l-2 17H17l-2-17ZM24 26 12 4M24 26 21 3M24 26l5-23M24 26 36 5"></path>
             </svg>
             <div>
-              <h2>Oda Kokuları</h2>
-              <p>Ev için koku seçenekleri</p>
+              <h2>$ui_nav_home_fragrance</h2>
+              <p>$ui_feature_home</p>
             </div>
           </article>
           <article class="feature-item" id="candles">
@@ -124,8 +131,8 @@
               <path d="M9 17v24c8 4 22 4 30 0V17M9 17c8 4 22 4 30 0-8-4-22-4-30 0ZM24 17v-4M24 4c-4 5-4 8 0 10 4-2 4-5 0-10Z"></path>
             </svg>
             <div>
-              <h2>Mumlar</h2>
-              <p>Mum koleksiyonu</p>
+              <h2>$ui_nav_candles</h2>
+              <p>$ui_feature_candles</p>
             </div>
           </article>
           <article class="feature-item" id="gift-sets">
@@ -134,8 +141,8 @@
               <path d="M7 19h34v24H7zM5 13h38v6H5zM24 13v30M24 13c-6 0-12-2-12-6 0-5 8-6 12 6ZM24 13c6 0 12-2 12-6 0-5-8-6-12 6Z"></path>
             </svg>
             <div>
-              <h2>Hediye Setleri</h2>
-              <p>Hediye fikirleri</p>
+              <h2>$ui_nav_gifts</h2>
+              <p>$ui_feature_gifts</p>
             </div>
           </article>
         </div>
@@ -145,8 +152,8 @@
         aria-labelledby="featured-title">
         <div class="container">
           <div class="section-heading">
-            <h2 id="featured-title">Öne Çıkan Ürünler</h2>
-            <p>Görseller, ürün adları ve fiyatlar temsilidir.</p>
+            <h2 id="featured-title">$ui_featured_title</h2>
+            <p>$ui_featured_note</p>
           </div>
           <div class="product-grid">
 $featured_cards
@@ -159,29 +166,29 @@ $featured_cards
       <div class="container footer-grid">
         <section id="about" aria-labelledby="footer-about-title">
           <h2 id="footer-about-title">VOILA FRAGRANCES</h2>
-          <p>Marka bilgileri yakında eklenecek.</p>
+          <p>$ui_footer_brand_wait</p>
         </section>
-        <nav aria-label="Alt menü">
-          <h2>Gezinme</h2>
+        <nav aria-label="$ui_footer_nav">
+          <h2>$ui_footer_navigation</h2>
           <ul class="footer-links">
-            <li><a href="#top">Ana Sayfa</a></li>
-            <li><a href="products/">Koleksiyon</a></li>
-            <li><a href="about/">Hakkımızda</a></li>
-            <li><a href="contact/">İletişim</a></li>
+            <li><a href="#top">$ui_home_title</a></li>
+            <li><a href="products/">$ui_nav_collection</a></li>
+            <li><a href="about/">$ui_about_title</a></li>
+            <li><a href="contact/">$ui_contact_title</a></li>
           </ul>
         </nav>
         <section id="contact" aria-labelledby="footer-contact-title">
-          <h2 id="footer-contact-title">İletişim</h2>
-          <p>İletişim bilgileri yakında eklenecek.</p>
+          <h2 id="footer-contact-title">$ui_contact_title</h2>
+          <p>$ui_footer_contact_wait</p>
         </section>
         <section aria-labelledby="footer-legal-title">
-          <h2 id="footer-legal-title">Yasal Bilgiler</h2>
-          <p>Yasal metinler hazırlık aşamasındadır.</p>
+          <h2 id="footer-legal-title">$ui_footer_legal_title</h2>
+          <p>$ui_footer_legal_wait</p>
         </section>
       </div>
     </footer>
     <p class="cart-feedback" role="status" aria-live="polite" data-cart-feedback
-      data-added-text="Deneme sepetine eklendi."
-      data-unavailable-text="Sepet şu anda kullanılamıyor." hidden></p>
+      data-added-text="$ui_feedback_added"
+      data-unavailable-text="$ui_feedback_unavailable" hidden></p>
   </body>
 </html>

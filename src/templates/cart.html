@@ -1,52 +1,51 @@
       <div class="container cart-page" data-cart-page
-        data-unit-price-label="Birim fiyat:"
-        data-line-total-label="Ürün toplamı:"
-        data-price-missing-label="Fiyat bilgisi yok"
-        data-subtotal-missing-label="Hesaplanamıyor"
-        data-increase-label="Adedi artır:"
-        data-decrease-label="Adedi azalt:"
-        data-remove-label="Ürünü kaldır:">
-        <nav class="catalog-breadcrumbs" aria-label="İçerik yolu">
-          <ol><li><a href="${root}index.html">Ana Sayfa</a></li>
-            <li aria-current="page">Sepetim</li></ol>
+        data-unit-price-label="$ui_cart_unit"
+        data-line-total-label="$ui_cart_line"
+        data-price-missing-label="$ui_cart_price_missing"
+        data-subtotal-missing-label="$ui_cart_subtotal_missing"
+        data-increase-label="$ui_cart_increase"
+        data-decrease-label="$ui_cart_decrease"
+        data-remove-label="$ui_cart_remove_label">
+        <nav class="catalog-breadcrumbs" aria-label="$ui_breadcrumb">
+          <ol><li><a href="${local_root}index.html">$ui_home_title</a></li>
+            <li aria-current="page">$ui_cart_title</li></ol>
         </nav>
         <header class="cart-intro">
           <p class="eyebrow">VOILA FRAGRANCES</p>
-          <h1>Sepetim</h1>
-          <p>Ürünleri deneme sepetinizde inceleyebilirsiniz.</p>
-          <p class="catalog-demo-note">Ürünler ve fiyatlar temsilîdir. Bu siteden henüz
-            gerçek sipariş verilemez.</p>
+          <h1>$ui_cart_title</h1>
+          <p>$ui_cart_intro</p>
+          <p class="catalog-demo-note">$ui_cart_note</p>
         </header>
-        <p class="cart-state-message" data-cart-loading>Sepet yükleniyor...</p>
-        <noscript><p class="cart-state-message">Sepeti görüntülemek için JavaScript gereklidir.</p></noscript>
+        <p class="cart-state-message" data-cart-loading>$ui_cart_loading</p>
+        <noscript><p class="cart-state-message">$ui_cart_nojs</p></noscript>
         <p class="cart-state-message" data-cart-error hidden>
-          Sepet şu anda görüntülenemiyor. Lütfen daha sonra tekrar deneyin.
+          $ui_cart_error
         </p>
         <p class="cart-state-message" data-cart-storage-error hidden>
-          Tarayıcı depolaması kullanılamıyor. Sepet bu tarayıcıda etkinleştirilemiyor.
+          $ui_cart_storage_error
         </p>
         <div class="cart-empty" data-cart-empty hidden>
-          <p>Sepetiniz boş.</p>
-          <a class="button button-secondary" href="${root}products/">Ürünlere Dön</a>
+          <p>$ui_cart_empty</p>
+          <a class="button button-secondary" href="${local_root}products/">$ui_cart_continue</a>
         </div>
         <div class="cart-layout" data-cart-content hidden>
           <section class="cart-items" aria-labelledby="cart-items-title">
-            <h2 class="visually-hidden" id="cart-items-title">Sepetteki Ürünler</h2>
+            <h2 class="visually-hidden" id="cart-items-title">$ui_cart_items</h2>
             <div data-cart-items></div>
-            <a class="cart-continue-link" href="${root}products/">Ürünlere Dön</a>
+            <a class="cart-continue-link" href="${local_root}products/">$ui_cart_continue</a>
           </section>
           <aside class="cart-summary" aria-labelledby="cart-summary-title">
-            <h2 id="cart-summary-title">Sepet Özeti</h2>
-            <p class="cart-subtotal"><span>Ara toplam</span>
+            <h2 id="cart-summary-title">$ui_cart_summary</h2>
+            <p class="cart-subtotal"><span>$ui_cart_subtotal</span>
               <strong data-cart-subtotal></strong></p>
             <p class="cart-subtotal-note" data-cart-subtotal-note hidden>
-              Bazı ürünlerin fiyatı bulunmadığından tam bir ara toplam gösterilemiyor.
+              $ui_cart_subtotal_note
             </p>
-            <button class="cart-clear-button" type="button" data-cart-clear>Sepeti Boşalt</button>
+            <button class="cart-clear-button" type="button" data-cart-clear>$ui_cart_clear</button>
             <button class="button button-primary cart-checkout-button" type="button" disabled>
-              Ödemeye Geç
+              $ui_checkout
             </button>
-            <p class="cart-checkout-note">Online satın alma henüz kullanıma açık değil.</p>
+            <p class="cart-checkout-note">$ui_checkout_note</p>
           </aside>
         </div>
       </div>
@@ -62,7 +61,7 @@
               <button type="button" data-item-decrease>−</button>
               <output data-item-quantity></output>
               <button type="button" data-item-increase>+</button>
-              <button class="cart-remove-button" type="button" data-item-remove>Kaldır</button>
+              <button class="cart-remove-button" type="button" data-item-remove>$ui_cart_remove</button>
             </div>
           </div>
           <p class="cart-item-line-total" data-item-total></p>
